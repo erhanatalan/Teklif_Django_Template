@@ -173,8 +173,16 @@ def toword():
 
     # Belgeyi kaydet
     word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
-    doc.save(f'{word_dizini}/{dosya1}.docx')
-    print(f'{dosya1} word belgesi olusturuldu')
+    try:
+        # Kodun geri kalan kısmı buraya gelecek
+
+        # Belgeyi kaydet
+        doc.save(f'{word_dizini}/{dosya1}.docx')
+        print(f'{dosya1} word belgesi olusturuldu')
+    except Exception as e:
+        print(f'Hata oluştu: {e}')
+    # doc.save(f'{word_dizini}/{dosya1}.docx')
+    # print(f'{dosya1} word belgesi olusturuldu')
     # time.sleep(2)
 
 
