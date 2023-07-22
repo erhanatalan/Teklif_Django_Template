@@ -10,6 +10,7 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
     print('email basladi')
     # Create a multipart message object
     msg = MIMEMultipart('alternative')
+    print('email basladi 2')
     msg['From'] = sender_email
     msg['To'] = recipient_email
     msg['Subject'] = subject
