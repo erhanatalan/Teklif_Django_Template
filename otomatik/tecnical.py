@@ -2,8 +2,6 @@
 from .veri1 import *
 from .veri import *
 import docx
-import os
-from django.conf import settings
 from .hyperlink import add_hyperlink
 from docx.shared import Inches, Pt
 from docx.shared import RGBColor

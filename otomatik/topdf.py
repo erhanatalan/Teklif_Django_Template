@@ -3,8 +3,8 @@ import os
 from django.conf import settings
 
 def wordtopdf(docxPathName, pdfPathName):
-    docxPathName = f'{settings.BASE_DIR}/otomatik/word/Teklif.docx'
-    pdfPathName = f'{settings.BASE_DIR}/otomatik/pdf/Teklif.pdf'
+    # docxPathName = f'{settings.BASE_DIR}/otomatik/word/Teklif.docx'
+    # pdfPathName = f'{settings.BASE_DIR}/otomatik/pdf/Teklif.pdf'
     try:
         # LibreOffice komutunu çalıştırarak DOCX dosyasını PDF'ye dönüştürün
         subprocess.run(['libreoffice', '--headless', '--convert-to', 'pdf', docxPathName, '--outdir', pdfPathName])
