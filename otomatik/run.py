@@ -24,6 +24,15 @@ word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
 
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf/')
 
+def delete_docx_file(file_path):
+    try:
+        os.remove(file_path)
+        print(f"File '{file_path}' deleted successfully.")
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred while deleting the file: {e}")
+
 def run():
     # ******************WORD*********************************
     toword()
@@ -35,3 +44,8 @@ def run():
     wordtopdf(f'{word_dizini}/{dosya2}.docx',f'{pdf_dizini}/{dosya2}.pdf')
     # ******************Preview*********************************
     sendemail(sender_email, sender_password, recipient_email, subject, message1)
+
+    delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya1}'))
+    delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}'))
+    delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/pdf/{dosya1}'))
+    delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/pdf/{dosya1}'))
