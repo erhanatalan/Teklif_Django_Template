@@ -36,9 +36,9 @@ nakliyeucret = row[17]
 
 print(row)
 
-cursor.execute("SELECT * FROM teklif_teklif ORDER BY id ASC LIMIT 1")
-row1 = cursor.fetchone()
+# cursor.execute("SELECT * FROM teklif_teklif ORDER BY id ASC LIMIT 1")
+# row1 = cursor.fetchone()
 
-print(row1)
+# print(row1)
 
 conn.close()
