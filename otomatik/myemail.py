@@ -4,7 +4,10 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
+print('email baslamadi')
+
 def sendemail(sender_email, sender_password, recipient_email, subject, message1):
+    print('email basladi')
     # Create a multipart message object
     msg = MIMEMultipart('alternative')
     msg['From'] = sender_email
@@ -28,6 +31,7 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
         msg.attach(pdf1)
     msg.attach(part1)
     msg.attach(part2)
+    print('email yuklendi')
     # SMTP server settings for Outlook
     smtp_server = 'smtp-mail.outlook.com'
     smtp_port = 587
