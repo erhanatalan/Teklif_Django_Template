@@ -61,8 +61,8 @@ def toword():
     # ******************************************
     # Resmi ekle
     from django.conf import settings
-    resim_dizini = os.path.join(settings.MEDIA_ROOT, '')
-    resim_yolu = os.path.join(resim_dizini, 'abs.png')
+    # resim_dizini = os.path.join(settings.MEDIA_ROOT, '')
+    resim_yolu = os.path.join(settings.MEDIA_ROOT, 'abs.png')
     paragraf.add_run().add_picture(resim_yolu)
     # Sayfa genişliğini al
     section = doc.sections[0]
@@ -133,7 +133,7 @@ def toword():
     cell = table.cell(2, 1)  # İstenilen hücrenin konumunu belirleyin
     cell_paragraph = cell.paragraphs[0]  # Hücredeki ilk paragrafı alın
     run = cell_paragraph.add_run()
-    resim_yolu = os.path.join(resim_dizini, 'abs1.png')
+    resim_yolu = os.path.join(settings.MEDIA_ROOT, 'abs1.png')
     run.add_picture(resim_yolu,width=Inches(1.5), height=Inches(1.5) )
     # Tablonun her hücresinin etrafına çerçeve ekle
     for row in table.rows:
