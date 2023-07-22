@@ -3,6 +3,8 @@ from .veri1 import *
 from .topdf import *
 from .tecnical import towordtecnical
 from .myemail import sendemail
+import os
+from django.conf import settings
 from .getOffering import toword
 if(usmodel=='B'):
     from .infoB import *
@@ -17,9 +19,10 @@ elif(usmodel=='V'):
 elif(usmodel=='I'):
     from .infoI import *
 
-word_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/word/'
 
-pdf_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/pdf/'
+word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
+
+pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf/')
 
 def run():
     # ******************WORD*********************************

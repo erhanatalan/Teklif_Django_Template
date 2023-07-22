@@ -172,7 +172,7 @@ def toword():
 
 
     # Belgeyi kaydet
-    word_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/word/'
+    word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
     doc.save(f'{word_dizini}/{dosya1}.docx')
     print(f'{dosya1} word belgesi olusturuldu')
     # time.sleep(2)

@@ -2,6 +2,8 @@
 from .veri1 import *
 from .veri import *
 import docx
+import os
+from django.conf import settings
 from .hyperlink import add_hyperlink
 from docx.shared import Inches, Pt
 from docx.shared import RGBColor
@@ -364,7 +366,7 @@ def towordtecnical():
 
 
     # Belgeyi kaydet
-    word_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/word/'
+    word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
     doc.save(f'{word_dizini}/{dosya2}.docx')
     print(f'{dosya2} word belgesi olusturuldu')
 
