@@ -29,7 +29,7 @@ elif(usmodel=='I'):
 def toword():
     # ******************************************
     # Türkçe lokal ayarlarını kullan
-    locale.setlocale(locale.LC_TIME, 'tr_TR.UTF-8')
+    locale.setlocale(locale.LC_TIME, 'en_GB.UTF-8')
     # Yeni bir Word belgesi oluştur
     doc = docx.Document()
     # ******************************************
