@@ -48,8 +48,9 @@ def towordtecnical():
     paragraf = doc.add_paragraph()
     paragraf.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
     # Resmi ekle
-    resim_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/media/'
-    resim_yolu = os.path.join(resim_dizini, 'abs.png')
+    from django.conf import settings
+    # resim_dizini = os.path.join(settings.MEDIA_ROOT, '')
+    resim_yolu = os.path.join(settings.MEDIA_ROOT, 'abs.png')
     paragraf.add_run().add_picture(resim_yolu)
     # Sayfa genişliğini al
     section = doc.sections[0]
