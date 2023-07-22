@@ -3,7 +3,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
-
+import os
+from django.conf import settings
 
 def sendemail(sender_email, sender_password, recipient_email, subject, message1):
 
@@ -23,8 +24,8 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
     part2 = MIMEText(html, 'html')
 
     # word_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/word/'
-
-    pdf_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/pdf/'
+    pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf/')
+    # pdf_dizini = 'C:/Users/yenic/Desktop/Teklif_Django_Template/otomatik/pdf/'
 
     with open(f'{pdf_dizini}/{dosya1}.pdf', 'rb') as file:
         pdf = MIMEApplication(file.read())
