@@ -183,7 +183,6 @@ def toword():
         print(f'{dosya1} Hata oluştu: {e}')
     # doc.save(f'{word_dizini}/{dosya1}.docx')
     # print(f'{dosya1} word belgesi olusturuldu')
-    # time.sleep(2)
 
 
 
