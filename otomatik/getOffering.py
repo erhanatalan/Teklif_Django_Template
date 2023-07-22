@@ -60,7 +60,8 @@ def toword():
     paragraf.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
     # ******************************************
     # Resmi ekle
-    resim_dizini = '/home/ubuntu/Teklif_Django_Template/media/'
+    from django.conf import settings
+    resim_dizini = os.path.join(settings.MEDIA_ROOT, '')
     resim_yolu = os.path.join(resim_dizini, 'abs.png')
     paragraf.add_run().add_picture(resim_yolu)
     # Sayfa genişliğini al
