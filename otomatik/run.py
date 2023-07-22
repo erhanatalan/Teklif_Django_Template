@@ -20,9 +20,9 @@ elif(usmodel=='I'):
     from .infoI import *
 
 
-word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
+word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word')
 
-pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf/')
+pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def delete_docx_file(file_path):
     try:
@@ -49,4 +49,3 @@ def run():
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/pdf/{dosya1}'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/pdf/{dosya1}'))
-    

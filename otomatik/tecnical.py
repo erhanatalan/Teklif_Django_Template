@@ -367,7 +367,7 @@ def towordtecnical():
 
 
     # Belgeyi kaydet
-    word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word/')
+    word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word')
     doc.save(f'{word_dizini}/{dosya2}.docx')
     print(f'{dosya2} word belgesi olusturuldu')
 
