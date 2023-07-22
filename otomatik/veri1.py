@@ -2,8 +2,12 @@ import sqlite3
 import os
 from django.conf import settings
 
-db_yolu = os.path.join(settings.BASE_DIR, 'db.sqlite3')
-conn = sqlite3.connect(db_yolu)
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "main.settings")
+
+# db_yolu = os.path.join(settings.BASE_DIR, 'db.sqlite3')
+settings.configure()
+# conn = sqlite3.connect(db_yolu)
+conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
 cursor.execute("SELECT * FROM teklif_teklif ORDER BY id DESC LIMIT 1")
@@ -30,6 +34,6 @@ insaatucret = row[15]
 vincucret = row[16]
 nakliyeucret = row[17]
 
-print(toemail)
+print(row)
 
 conn.close()
