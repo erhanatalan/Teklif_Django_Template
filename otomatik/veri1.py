@@ -1,6 +1,9 @@
 import sqlite3
+import os
+from django.conf import settings
 
-conn = sqlite3.connect('db.sqlite3')
+db_yolu = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
+conn = sqlite3.connect(db_yolu)
 cursor = conn.cursor()
 
 cursor.execute("SELECT * FROM teklif_teklif ORDER BY id DESC LIMIT 1")
