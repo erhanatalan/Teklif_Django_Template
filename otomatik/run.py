@@ -49,3 +49,4 @@ def run():
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/pdf/{dosya1}'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/pdf/{dosya1}'))
+    
