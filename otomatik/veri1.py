@@ -2,7 +2,7 @@ import sqlite3
 import os
 from django.conf import settings
 
-db_yolu = os.path.join(settings.MEDIA_ROOT, 'db.sqlite3')
+db_yolu = os.path.join(settings.BASE_DIR, 'db.sqlite3')
 conn = sqlite3.connect(db_yolu)
 cursor = conn.cursor()
 
