@@ -21,11 +21,11 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
     part2 = MIMEText(html, 'html')
     print('email basladi 3')
     try:
-        with open(f'{pdf_dizini}/{dosya1}.pdf', 'rb') as file:
+        with open(f'{settings.BASE_DIR}/{dosya1}.pdf', 'rb') as file:
             pdf = MIMEApplication(file.read())
             pdf.add_header('Content-Disposition', 'attachment', filename=f'{dosya1}.pdf')
             msg.attach(pdf)
-        with open(f'{pdf_dizini}/{dosya2}.pdf', 'rb') as file1:
+        with open(f'{settings.BASE_DIR}/{dosya2}.pdf', 'rb') as file1:
             pdf1 = MIMEApplication(file1.read())
             pdf1.add_header('Content-Disposition', 'attachment', filename=f'{dosya2}.pdf')
             msg.attach(pdf1)
