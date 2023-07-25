@@ -127,7 +127,7 @@
                     <label for="{{ form.nakliyeucret.id_for_label }}">Nakliyeucret:</label>
                     {{ form.nakliyeucret }}
                 </div>
-                <!-- Other fields go here (omitted for brevity) -->
+                {% comment %} <!-- Other fields go here (omitted for brevity) -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">
                     Open PDF Preview
                 </button>
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
                 
                 <div class="form-group mt-3">
                     <label for="onayla"></label>
