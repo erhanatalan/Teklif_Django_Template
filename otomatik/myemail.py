@@ -31,6 +31,7 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
             msg.attach(pdf1)
     except smtplib.SMTPException as e:
         print("Error attach:", str(e))
+        pass
     print('attach try ok')
     msg.attach(part1)
     msg.attach(part2)
