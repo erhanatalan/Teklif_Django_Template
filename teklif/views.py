@@ -15,8 +15,8 @@ def offer_success_view(request):
 def pdf_preview(request):
     # PDF dosya yollarını burada alın ve modala aktarmak için şablona geçin
     context = {
-        'Teklif_path': f'{pdf_dizini}/Teklif.pdf',
-        'Teknik_Veriler_path': f'{pdf_dizini}/Teknik_Veriler.pdf'
+        'Teklif_path': f'{settings.BASE_DIR}/Teklif.pdf',
+        'Teknik_Veriler_path': f'{settings.BASE_DIR}/Teknik_Veriler.pdf'
     }
     return render(request, 'home.html', context)
 
