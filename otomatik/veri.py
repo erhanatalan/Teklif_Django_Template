@@ -55,6 +55,8 @@ mavi = RGBColor(28, 96, 113)
 dosya1 = f'Teklif'
 dosya2 = f'Teknik_Veriler'
 
+pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
+word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word')
 sheet = os.getenv("KEY")
 sender_password = os.getenv("SIFRE")
 

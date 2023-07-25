@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 import docx 
 from docx.shared import RGBColor
-from docx.shared import Inches, Pt
-from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
-from docx.oxml.ns import nsdecls
-from docx.oxml import parse_xml
-from datetime import date
-from docx.enum.dml import MSO_THEME_COLOR_INDEX
-from docx.enum.dml import MSO_COLOR_TYPE
+# from docx.shared import Inches, Pt
+# from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+# from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT
+# from docx.oxml.ns import nsdecls
+# from docx.oxml import parse_xml
+# from datetime import date
+# from docx.enum.dml import MSO_THEME_COLOR_INDEX
+# from docx.enum.dml import MSO_COLOR_TYPE
 
 
 def add_hyperlink(paragraph, url, text, color, underline):
@@ -20,7 +20,6 @@ def add_hyperlink(paragraph, url, text, color, underline):
     :param text: The text displayed for the url
     :return: The hyperlink object
     """
-
     # This gets access to the document.xml.rels file and gets a new relation id value
     part = paragraph.part
     r_id = part.relate_to(url, docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True)

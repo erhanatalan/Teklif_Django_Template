@@ -25,7 +25,6 @@ elif(usmodel=='I'):
     from .infoI import *
 
 
-
 def toword():
     # ******************************************
     # Türkçe lokal ayarlarını kullan
@@ -34,7 +33,6 @@ def toword():
     # Yeni bir Word belgesi oluştur
     doc = docx.Document()
     # ******************************************
-    
     # Font ailesini değiştirmek için stil şablonu oluştur
     style = doc.styles['Normal']
     font = style.font
@@ -88,34 +86,16 @@ def toword():
     # ******************************************
     # Metin paragrafları ekle
     satir1 = doc.add_paragraph(f'KONU: {adet} Adet 3X{uzunluk}m, Tam Elektronik Zemin Üstü {tonaj} Ton Kapasiteli {model} Model {mekanik} Kantar İmalat ve Kurulum Fiyat Teklifi.')
-
     satir2 = doc.add_paragraph(f'1.) MEKANİK VE ELEKTRONİK AKSAM: Teknik bilgiler, İnşaat Projesi ve Fotoğraflar ikinci sayfada yer almaktadır.')
-
     satir3 = doc.add_paragraph(f'2.) İNŞAAT VE PROJE: Kantar zemini için proje verilecektir. Proje üzerindeki detaylar, inşaat, kabin, hafriyat ve çevre düzenlemesi {insaat} yapılacaktır.')
-
-    # Metin ve linki tanımla
-    # metin = f'{linkB6}'
-    # satir4 = doc.add_paragraph('İnşaat Projesi :')
-    # satir41 = add_hyperlink(satir4, 'https://drive.google.com/file/d/1el2eAMfcprVtToEwUxMSUF60ZRvoiHOm/view?usp=sharing', 'B6 inşaat projesi.pdf', '1E90FF', False)
-    # run = satir4.add_run(satir41)
-    # Metin ve linki tanımla
-
     satir6 = doc.add_paragraph(f'3) TESLİMAT: Anlaşma; sözleşmenin yapıldığı tarihten (ön peşinat ödemesi yapıldığı) tarihten itibaren {teslimatgun} iş günü içerisinde kantar teslim edilecektir.')
-
     satir7 = doc.add_paragraph(f'4) MONTAJ: Kantar firmamız elemanları tarafından kurulacaktır. Gerekli eğitim kullanıcıya verilecektir. Kantarın kurulumu sırasında gerekli olan vinç (3-4 saat) vb. ekipmanlar {vinc} tedarik edilecektir.')
-
     satir8 = doc.add_paragraph(f'5) NAKLİYE: Kantarın nakliyesi {nakliye} yapılacaktır. Kantar platformları toplam {rampaharic} Ton {dahil} gelecektir. Nakliyesi için bir tır yeterlidir.')
-
     satir9 = doc.add_paragraph(f'6) FİYAT: Fiyatlarda %{kdv} KDV dâhil değildir.\n1 Adet fiyatı {fiyat}₺ {rmp}\n1 Adet Periyodik Muayene Sertifikası Ücretsiz (2 Yıl Geçerli)')
-
     satir10 = doc.add_paragraph(f'7) ÖDEME:\n\ta.) %{onodeme} Peşin siparişte, geri kalan tutar teslimatta nakit olarak ödenir.\n\tb.) Diğer bir ödeme planı %{onodeme} nakit siparişte, kalanı teslimatta {cekvade} gün vade çek olarak ödenirse fiyat üzerine %{ekcekodeme} eklenir.')
-
     satir11 = doc.add_paragraph(f'8) GARANTİ VE TEKLİF SÜRESİ: Elektronik Aksam 2 yıl, Mekanik Aksam {mekanikgaranti} yıl Garantilidir. Teklifimiz {teklifsuresi} gün geçerlidir.')
-
     satir12 = doc.add_paragraph(f'Ülkemizin tüm illerinde ayrıca ARABİSTAN, IRAK, TÜRKMENİSTAN, BULGARİSTAN, RUSYA, GÜRCİSTAN VE BİRÇOK AFRİKA ÜLKESİNDE’ da referanslarımız, ayrıca Servis hizmetimiz vardır.')
-
     satir13 = doc.add_paragraph(f'Teklifimizi uygun karşılayacağınızı umar, işlerinizde başarılar dileriz.Saygılarımla…')
-
     satir14 = doc.add_paragraph(f'Saygılarımla…')
     # ******************************************
     # Tabloyu oluştur
@@ -170,23 +150,11 @@ def toword():
     satir13.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
     satir14.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
 
-
-    # Belgeyi kaydet
-    word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word')
     try:
-        # Kodun geri kalan kısmı buraya gelecek
-
-        # Belgeyi kaydet
-        doc.save(f'{word_dizini}/{dosya1}.docx')
+        doc.save(f'{word_dizini}/{dosya1}.docx') # Belgeyi kaydet
         print(f'{dosya1} word belgesi olusturuldu')
     except Exception as e:
         print(f'{dosya1} Hata oluştu: {e}')
-    # doc.save(f'{word_dizini}/{dosya1}.docx')
-    # print(f'{dosya1} word belgesi olusturuldu')
-
-
-
-# toword()
 
 
 

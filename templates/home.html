@@ -19,85 +19,77 @@
     <!-- content start -->
     {% block content %}
     <div class="mt-5">
-      <div class="row justify-content-center">
-          <div class="col-10 col-sm-8 col-md-6">
-              <form action="/" method="post">
-                  {% csrf_token %}
-                  <div class="form-group mt-3">
-                      <label for="{{ form.toemail.id_for_label }}">GÖNDERİLECEK MAİL</label>
-                      {{ form.toemail }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.firma.id_for_label }}">GÖNDERİLECEK FİRMA</label>
-                      {{ form.firma }}
-                  </div>
+        <div class="row justify-content-center">
+            <div class="col-10 col-sm-8 col-md-6">
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <label for="{{ form.toemail.id_for_label }}">GÖNDERİLECEK MAİL</label>
+                        {{ form.toemail }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.firma.id_for_label }}">GÖNDERİLECEK FİRMA</label>
+                        {{ form.firma }}
+                    </div>
 
-                  <div class="form-group mt-3">
-                      <label>Usmodel:</label>
-                      {% for radio in form.usmodel %}
-                      <div class="form-check form-check-inline">
-                          {{ radio.tag }}
-                          <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
-                      </div>
-                      {% endfor %}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label>Indikator:</label>
-                      {% for radio in form.indikator %}
-                      <div class="form-check form-check-inline">
-                          {{ radio.tag }}
-                          <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
-                      </div>
-                      {% endfor %}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label>Yazar:</label>
-                      {% for radio in form.yazar %}
-                      <div class="form-check form-check-inline">
-                          {{ radio.tag }}
-                          <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
-                      </div>
-                      {% endfor %}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label>Uzunluk:</label>
-                      {% for radio in form.uzunluk %}
-                      <div class="form-check form-check-inline">
-                          {{ radio.tag }}
-                          <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
-                      </div>
-                      {% endfor %}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label>Tonaj:</label>
-                      {% for radio in form.tonaj %}
-                      <div class="form-check form-check-inline">
-                          {{ radio.tag }}
-                          <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
-                      </div>
-                      {% endfor %}
-                  </div>
-
-                  <div class="form-group mt-3">
-                    <label for="{{ form.cekvade.id_for_label }}">Cekvade:</label>
-                    {% for radio in form.cekvade %}
-                    <div class="form-check form-check-inline">
-                        {{ radio.tag }}
-                        <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                    <div class="form-group mt-3">
+                        <label>Usmodel:</label>
+                        {% for radio in form.usmodel %}
+                        <div class="form-check form-check-inline">
+                            {{ radio.tag }}
+                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Indikator:</label>
+                        {% for radio in form.indikator %}
+                        <div class="form-check form-check-inline">
+                            {{ radio.tag }}
+                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Yazar:</label>
+                        {% for radio in form.yazar %}
+                        <div class="form-check form-check-inline">
+                            {{ radio.tag }}
+                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Uzunluk:</label>
+                        {% for radio in form.uzunluk %}
+                        <div class="form-check form-check-inline">
+                            {{ radio.tag }}
+                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Tonaj:</label>
+                        {% for radio in form.tonaj %}
+                        <div class="form-check form-check-inline">
+                            {{ radio.tag }}
+                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.cekvade.id_for_label }}">Cekvade:</label>
+                        {% for radio in form.cekvade %}
+                        <div class="form-check form-check-inline">
+                            {{ radio.tag }}
+                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
                     </div>
                     {% endfor %}
                 </div>
-
                 <div class="form-group mt-3">
-                  <label for="{{ form.insaat.id_for_label }}">Insaat:</label>
-                  {{ form.insaat }}
+                    <label for="{{ form.insaat.id_for_label }}">Insaat:</label>
+                    {{ form.insaat }}
                 </div>
-                
                 <div class="form-group mt-3">
                     <label for="{{ form.vinc.id_for_label }}">Vinc:</label>
                     {{ form.vinc }}
@@ -107,57 +99,80 @@
                     <label for="{{ form.nakliye.id_for_label }}">Nakliye:</label>
                     {{ form.nakliye }}
                 </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.teslimatgun.id_for_label }}">Teslimatgun:</label>
-                      {{ form.teslimatgun }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.onodeme.id_for_label }}">Onodeme:</label>
-                      {{ form.onodeme }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.teklifsuresi.id_for_label }}">Teklifsuresi:</label>
-                      {{ form.teklifsuresi }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.ekmasraf.id_for_label }}">Ekmasraf:</label>
-                      {{ form.ekmasraf }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.insaatucret.id_for_label }}">Insaatucret:</label>
-                      {{ form.insaatucret }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.vincucret.id_for_label }}">Vincucret:</label>
-                      {{ form.vincucret }}
-                  </div>
-                  
-                  <div class="form-group mt-3">
-                      <label for="{{ form.nakliyeucret.id_for_label }}">Nakliyeucret:</label>
-                      {{ form.nakliyeucret }}
-                  </div>
-                  
-                  <!-- Other fields go here (omitted for brevity) -->
-                  
-                  <div class="form-group mt-3">
-                      <label for="onayla"></label>
-                      <input type="submit" class="btn btn-primary" value="Onayla">
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
+                <div class="form-group mt-3">
+                    <label for="{{ form.teslimatgun.id_for_label }}">Teslimatgun:</label>
+                    {{ form.teslimatgun }}
+                </div>
+                <div class="form-group mt-3">
+                    <label for="{{ form.onodeme.id_for_label }}">Onodeme:</label>
+                    {{ form.onodeme }}
+                </div>
+                <div class="form-group mt-3">
+                    <label for="{{ form.teklifsuresi.id_for_label }}">Teklifsuresi:</label>
+                    {{ form.teklifsuresi }}
+                </div>  
+                <div class="form-group mt-3">
+                    <label for="{{ form.ekmasraf.id_for_label }}">Ekmasraf:</label>
+                    {{ form.ekmasraf }}
+                </div>
+                <div class="form-group mt-3">
+                    <label for="{{ form.insaatucret.id_for_label }}">Insaatucret:</label>
+                    {{ form.insaatucret }}
+                </div>  
+                <div class="form-group mt-3">
+                    <label for="{{ form.vincucret.id_for_label }}">Vincucret:</label>
+                    {{ form.vincucret }}
+                </div>
+                <div class="form-group mt-3">
+                    <label for="{{ form.nakliyeucret.id_for_label }}">Nakliyeucret:</label>
+                    {{ form.nakliyeucret }}
+                </div>
+                <!-- Other fields go here (omitted for brevity) -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">
+                    Open PDF Preview
+                </button>
+                <!-- The PDF Preview Modal -->
+                <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- PDF preview will be loaded here -->
+                                <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label for="onayla"></label>
+                    <input type="submit" class="btn btn-primary" value="Onayla">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
     {% endblock %}
     <!-- content end -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript to set the PDF source -->
+    <script>
+        function openPdfModal(pdfUrl) {
+            $('#pdfModal').on('show.bs.modal', function (event) {
+                var iframe = document.getElementById('pdfFrame');
+                iframe.src = pdfUrl;
+            });
+            $('#pdfModal').modal('show');
+        }
+    </script>
     {% comment %} <script src="{% static 'js/timeout.js' %}"></script> {% endcomment %}
 </body>
 </html>

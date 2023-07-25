@@ -21,8 +21,6 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
     # Attach the plain text and HTML versions to the email
     part1 = MIMEText(text, 'plain')
     part2 = MIMEText(html, 'html')
-    # word_dizini = '...Teklif_Django_Template/otomatik/word/'
-    pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
     with open(f'{pdf_dizini}/{dosya1}.pdf', 'rb') as file:
         pdf = MIMEApplication(file.read())
         pdf.add_header('Content-Disposition', 'attachment', filename=f'{dosya1}.pdf')
