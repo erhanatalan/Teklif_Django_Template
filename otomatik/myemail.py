@@ -5,8 +5,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-print('email baslamadi')
-
 def sendemail(sender_email, sender_password, recipient_email, subject, message1):
     print('email basladi')
     # Create a multipart message object
@@ -21,14 +19,18 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
     # Attach the plain text and HTML versions to the email
     part1 = MIMEText(text, 'plain')
     part2 = MIMEText(html, 'html')
-    with open(f'{pdf_dizini}/{dosya1}.pdf', 'rb') as file:
-        pdf = MIMEApplication(file.read())
-        pdf.add_header('Content-Disposition', 'attachment', filename=f'{dosya1}.pdf')
-        msg.attach(pdf)
-    with open(f'{pdf_dizini}/{dosya2}.pdf', 'rb') as file1:
-        pdf1 = MIMEApplication(file1.read())
-        pdf1.add_header('Content-Disposition', 'attachment', filename=f'{dosya2}.pdf')
-        msg.attach(pdf1)
+    try:
+        with open(f'{pdf_dizini}/{dosya1}.pdf', 'rb') as file:
+            pdf = MIMEApplication(file.read())
+            pdf.add_header('Content-Disposition', 'attachment', filename=f'{dosya1}.pdf')
+            msg.attach(pdf)
+        with open(f'{pdf_dizini}/{dosya2}.pdf', 'rb') as file1:
+            pdf1 = MIMEApplication(file1.read())
+            pdf1.add_header('Content-Disposition', 'attachment', filename=f'{dosya2}.pdf')
+            msg.attach(pdf1)
+    except smtplib.SMTPException as e:
+        print("Error attach:", str(e))
+   
     msg.attach(part1)
     msg.attach(part2)
     print('email yuklendi')
