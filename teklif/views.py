@@ -12,6 +12,14 @@ pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 def offer_success_view(request):
     return render(request, 'offer_success.html')
 
+def pdf_preview(request):
+    # PDF dosya yollarını burada alın ve modala aktarmak için şablona geçin
+    context = {
+        'Teklif_path': f'{pdf_dizini}/Teklif.pdf',
+        'Teknik_Veriler_path': f'{pdf_dizini}/Teknik_Veriler.pdf'
+    }
+    return render(request, 'home.html', context)
+
 def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
@@ -20,6 +28,7 @@ def teklif_submit_view(request):
             time.sleep(5)
             from otomatik.run import run
             run()
+            pdf_preview()
             return redirect('offer_success_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
         
         run()
@@ -44,11 +53,5 @@ def teklif_submit_view(request):
 
 #     return render(request, 'home.html')
     
-def pdf_preview(request):
-    # PDF dosya yollarını burada alın ve modala aktarmak için şablona geçin
-    context = {
-        'Teklif_path': f'{pdf_dizini}/Teklif.pdf',
-        'Teknik_Veriler_path': f'{pdf_dizini}/Teknik_Veriler.pdf'
-    }
-    return render(request, 'home.html', context)
+
 

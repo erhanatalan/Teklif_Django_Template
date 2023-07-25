@@ -43,6 +43,7 @@ def run():
     # ***************TO-PDF***********************************
     wordtopdf(f'{word_dizini}/{dosya2}.docx',f'{pdf_dizini}/{dosya2}.pdf')
     # ******************Preview*********************************
+    
     sendemail(sender_email, sender_password, recipient_email, subject, message1)
 
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya1}'))
