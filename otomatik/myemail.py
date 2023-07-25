@@ -19,6 +19,7 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
     # Attach the plain text and HTML versions to the email
     part1 = MIMEText(text, 'plain')
     part2 = MIMEText(html, 'html')
+    print('email basladi 3')
     try:
         with open(f'{pdf_dizini}/{dosya1}.pdf', 'rb') as file:
             pdf = MIMEApplication(file.read())
@@ -30,10 +31,10 @@ def sendemail(sender_email, sender_password, recipient_email, subject, message1)
             msg.attach(pdf1)
     except smtplib.SMTPException as e:
         print("Error attach:", str(e))
-   
+    print('attach try ok')
     msg.attach(part1)
     msg.attach(part2)
-    print('email yuklendi')
+    print('attach try ok 2')
     # SMTP server settings for Outlook
     smtp_server = 'smtp-mail.outlook.com'
     smtp_port = 587
