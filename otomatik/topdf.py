@@ -3,7 +3,8 @@ import subprocess
 def wordtopdf(docxPathName, pdfPathName):
     try:
         # LibreOffice komutunu çalıştırarak DOCX dosyasını PDF'ye dönüştürün
-        subprocess.run(['libreoffice', '--headless', '--convert-to', 'pdf', docxPathName, '--outdir', pdfPathName])
+        subprocess.run(['libreoffice', '--headless', '--convert-to', 'pdf', docxPathName ])
+        #, '--outdir', pdfPathName 
         print(f"{pdfPathName} dosyası oluşturuldu.")
     except Exception as e:
         print(f"Dönüştürme hatası: {e}")
