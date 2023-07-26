@@ -11,6 +11,8 @@ pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def offer_success_view(request):
     return render(request, 'offer_success.html')
+def home_view(request):
+    return render(request, 'home.html')
 
 # def pdf_preview(request):
 #     # PDF dosya yollarını burada alın ve modala aktarmak için şablona geçin
@@ -31,7 +33,8 @@ def teklif_submit_view(request):
             redirect('offer_success_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
             time.sleep(5)
             print('xx')
-            return redirect(request, 'home.html', {'form': form})
+            return redirect('home_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
+            # return redirect(request, 'home.html', {'form': form})
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
     return render(request, 'home.html', {'form': form})
