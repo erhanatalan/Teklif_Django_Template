@@ -34,8 +34,8 @@ def teklif_submit_view(request):
             # return redirect(request, 'home.html', {'form': form})
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
-    return redirect('home_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
-    #return render(request, 'home.html', {'form': form})
+    #return redirect('home_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
+    return render(request, 'home.html', {'form': form})
 
 # def pdf_preview(request):
 #     if request.method == 'POST':
