@@ -165,6 +165,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JavaScript to set the PDF source -->
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Wait for 4 seconds and then redirect to the 'offer_success_view'
+            setTimeout(function() {
+                window.location.href = "{% url 'offer_success_view' %}";
+            }, 4000); // 4000 milliseconds = 4 seconds
+        });
+    </script>
+    <script>
         function openPdfModal(pdfUrl) {
             $('#pdfModal').on('show.bs.modal', function (event) {
                 var iframe = document.getElementById('pdfFrame');
