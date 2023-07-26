@@ -85,78 +85,56 @@
                             <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
                     </div>
                     {% endfor %}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.insaat.id_for_label }}">Insaat:</label>
-                    {{ form.insaat }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.vinc.id_for_label }}">Vinc:</label>
-                    {{ form.vinc }}
-                </div>
-                
-                <div class="form-group mt-3">
-                    <label for="{{ form.nakliye.id_for_label }}">Nakliye:</label>
-                    {{ form.nakliye }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.teslimatgun.id_for_label }}">Teslimatgun:</label>
-                    {{ form.teslimatgun }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.onodeme.id_for_label }}">Onodeme:</label>
-                    {{ form.onodeme }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.teklifsuresi.id_for_label }}">Teklifsuresi:</label>
-                    {{ form.teklifsuresi }}
-                </div>  
-                <div class="form-group mt-3">
-                    <label for="{{ form.ekmasraf.id_for_label }}">Ekmasraf:</label>
-                    {{ form.ekmasraf }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.insaatucret.id_for_label }}">Insaatucret:</label>
-                    {{ form.insaatucret }}
-                </div>  
-                <div class="form-group mt-3">
-                    <label for="{{ form.vincucret.id_for_label }}">Vincucret:</label>
-                    {{ form.vincucret }}
-                </div>
-                <div class="form-group mt-3">
-                    <label for="{{ form.nakliyeucret.id_for_label }}">Nakliyeucret:</label>
-                    {{ form.nakliyeucret }}
-                </div>
-                {% comment %} <!-- Other fields go here (omitted for brevity) -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">
-                    Open PDF Preview
-                </button>
-                <!-- The PDF Preview Modal -->
-                <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="pdfModalLabel">PDF Preview</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- PDF preview will be loaded here -->
-                                <iframe id="pdfFrame" src="" frameborder="0"></iframe>
-                            </div>
-                        </div>
                     </div>
-                </div> {% endcomment %}
-                
-                <div class="form-group mt-3">
-                    <label for="onayla"></label>
-                    <input type="submit" class="btn btn-primary" value="Onayla">
-                </div>
-            </form>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.insaat.id_for_label }}">Insaat:</label>
+                        {{ form.insaat }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.vinc.id_for_label }}">Vinc:</label>
+                        {{ form.vinc }}
+                    </div>
+                    
+                    <div class="form-group mt-3">
+                        <label for="{{ form.nakliye.id_for_label }}">Nakliye:</label>
+                        {{ form.nakliye }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.teslimatgun.id_for_label }}">Teslimatgun:</label>
+                        {{ form.teslimatgun }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.onodeme.id_for_label }}">Onodeme:</label>
+                        {{ form.onodeme }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.teklifsuresi.id_for_label }}">Teklifsuresi:</label>
+                        {{ form.teklifsuresi }}
+                    </div>  
+                    <div class="form-group mt-3">
+                        <label for="{{ form.ekmasraf.id_for_label }}">Ekmasraf:</label>
+                        {{ form.ekmasraf }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.insaatucret.id_for_label }}">Insaatucret:</label>
+                        {{ form.insaatucret }}
+                    </div>  
+                    <div class="form-group mt-3">
+                        <label for="{{ form.vincucret.id_for_label }}">Vincucret:</label>
+                        {{ form.vincucret }}
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="{{ form.nakliyeucret.id_for_label }}">Nakliyeucret:</label>
+                        {{ form.nakliyeucret }}
+                    </div>
+                    
+                    <div class="form-group mt-3">
+                        <label for="onayla"></label>
+                        <input type="submit" class="btn btn-primary" value="Onayla">
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-
     </div>
     {% endblock %}
     <!-- content end -->
