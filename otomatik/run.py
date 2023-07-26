@@ -34,6 +34,7 @@ def delete_docx_file(file_path):
         print(f"An error occurred while deleting the file: {e}")
 
 def run():
+    print(row)
     # ******************WORD*********************************
     toword()
     # ***************TO-PDF***********************************
