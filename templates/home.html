@@ -166,10 +166,27 @@
     <!-- Custom JavaScript to set the PDF source -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Wait for 4 seconds and then redirect to the 'offer_success_view'
-            setTimeout(function() {
-                window.location.href = "{% url 'offer_success_view' %}";
-            }, 4000); // 4000 milliseconds = 4 seconds
+            // Attach a click event listener to the "Onayla" button
+            document.querySelector('button[type="submit"]').addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+    
+                // Submit the form using AJAX
+                fetch("{% url 'teklif_submit_view' %}", {
+                    method: "POST",
+                    body: new FormData(document.querySelector("form")),
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        // Wait for 4 seconds and then redirect to the 'offer_success_view'
+                        setTimeout(function() {
+                            window.location.href = "{% url 'offer_success_view' %}";
+                        }, 4000); // 4000 milliseconds = 4 seconds
+                    }
+                })
+                .catch(function(error) {
+                    console.error("Error:", error);
+                });
+            });
         });
     </script>
     <script>
