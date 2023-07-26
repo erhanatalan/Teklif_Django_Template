@@ -30,7 +30,10 @@ def teklif_submit_view(request):
             # pdf_preview()
             return redirect('offer_success_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
         time.sleep(5)
-        return render(request, 'home.html', {'form': form})
+        print('xx')
+        return redirect(request, 'home.html', {'form': form})
+        print('zz')
+
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
     return render(request, 'home.html', {'form': form})
