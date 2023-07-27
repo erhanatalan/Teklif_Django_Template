@@ -4,6 +4,7 @@ import time
 import os
 from django.conf import settings
 from .forms import TeklifForm
+from otomatik.server import run_server 
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def offer_success_view(request):
@@ -17,7 +18,9 @@ def teklif_submit_view(request):
             from otomatik.run import run
             run()
             # pdf_preview()
+            run_server()
             return redirect('offer_success_view')
+        
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
     return render(request, 'home.html', {'form': form})
