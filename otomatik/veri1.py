@@ -5,19 +5,6 @@ from django.db import connections
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "main.settings")
 
-# Connect to the SQLite database
-conn = sqlite3.connect('db.sqlite3')
-cursor = conn.cursor()
-
-# Your existing code here...
-
-# Close the initial connection
-conn.close()
-
-# Refresh the database connection
-connections.close_all()
-
-# Reopen the database connection
 conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 
