@@ -3,7 +3,6 @@ from .forms import TeklifForm
 import time
 import os
 from django.conf import settings
-from django.core.cache import cache
 from .forms import TeklifForm
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
