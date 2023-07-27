@@ -14,8 +14,7 @@ def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
         if form.is_valid():
-            form = TeklifForm()
-            form.save()
+            instance = form.save()
             transaction.commit()
             from otomatik.run import run
             run()
