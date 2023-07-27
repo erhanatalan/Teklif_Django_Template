@@ -6,22 +6,15 @@ import os
 import fitz
 from PIL import Image
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def offer_success_view(request):
     return render(request, 'offer_success.html')
-def home_view(request):
-    return render(request, 'home.html', {'form': form})
 
-# def pdf_preview(request):
-#     # PDF dosya yollarını burada alın ve modala aktarmak için şablona geçin
-#     context = {
-#         'Teklif_path': f'{settings.BASE_DIR}/Teklif.pdf',
-#         'Teknik_Veriler_path': f'{settings.BASE_DIR}/Teknik_Veriler.pdf'
-#     }
-#     return render(request, 'home.html', context)
-
+@csrf_exempt
 def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
@@ -56,5 +49,11 @@ def teklif_submit_view(request):
 
 #     return render(request, 'home.html')
     
-
+# def pdf_preview(request):
+#     # PDF dosya yollarını burada alın ve modala aktarmak için şablona geçin
+#     context = {
+#         'Teklif_path': f'{settings.BASE_DIR}/Teklif.pdf',
+#         'Teknik_Veriler_path': f'{settings.BASE_DIR}/Teknik_Veriler.pdf'
+#     }
+#     return render(request, 'home.html', context)
 
