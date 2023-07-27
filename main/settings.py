@@ -90,7 +90,7 @@ from django.core.cache import cache
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '16.16.189.171:8000',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
 # Password validation
