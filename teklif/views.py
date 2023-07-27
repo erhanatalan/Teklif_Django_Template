@@ -14,10 +14,9 @@ def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
         if form.is_valid():
-            instance = form.save(commit=False)
+            form.save()
             from otomatik.run import run
-            run(instance)
-            instance.save()
+            run()
             # pdf_preview()
             return redirect('offer_success_view')
     else:
