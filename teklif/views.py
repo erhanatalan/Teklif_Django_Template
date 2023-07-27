@@ -21,6 +21,7 @@ def teklif_submit_view(request):
         if form.is_valid():
             form.save()
             if form.save():
+                form = TeklifForm()
                 from otomatik.run import run
                 run()
                 # pdf_preview()
