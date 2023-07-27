@@ -33,8 +33,7 @@ def delete_docx_file(file_path):
     except Exception as e:
         print(f"An error occurred while deleting the file: {e}")
 
-def run():
-    print(row)
+def run(latest_teklif):
     # ******************WORD*********************************
     toword()
     # ***************TO-PDF***********************************

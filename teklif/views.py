@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import TeklifForm
 import time
 import os
 from django.conf import settings
 from .forms import TeklifForm
-from otomatik.server import run_server 
+from .models import Teklif
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def offer_success_view(request):
@@ -15,12 +14,10 @@ def teklif_submit_view(request):
         form = TeklifForm(request.POST)
         if form.is_valid():
             form.save()
+            latest_teklif = Teklif.objects.latest('id')
             from otomatik.run import run
-            run()
-            # pdf_preview()
-            run_server()
+            run(latest_teklif)
             return redirect('offer_success_view')
-        
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
     return render(request, 'home.html', {'form': form})
