@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import time
 import os
+import sqlite3
 from django.conf import settings
 from .forms import TeklifForm
 from .models import Teklif
@@ -14,10 +15,16 @@ def teklif_submit_view(request):
         form = TeklifForm(request.POST)
         if form.is_valid():
             form.save()
+            conn = sqlite3.connect('db.sqlite3')
+            cursor = conn.cursor()
+
+            cursor.execute("SELECT * FROM teklif_teklif ORDER BY id DESC LIMIT 1")
+            row = cursor.fetchone()
             # latest_teklif = Teklif.objects.latest('id')
-            from otomatik.run import run
-            run()
-            return redirect('offer_success_view')
+            if (form == row):
+                from otomatik.run import run
+                run()
+                return redirect('offer_success_view')
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
     return render(request, 'home.html', {'form': form})
