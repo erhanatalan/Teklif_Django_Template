@@ -1,11 +1,13 @@
 import subprocess
 import signal
 import time
+import os
+import sys  # Import sys to access the Python interpreter path
 
 def stop_server():
     try:
         # Find the process running the Django server
-        process = subprocess.Popen(["python", "manage.py", "runserver"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen([sys.executable, "manage.py", "runserver"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         process_info = process.communicate()[0].decode("utf-8")
 
         # Extract the process ID from the process_info
@@ -34,4 +36,4 @@ def run_server():
 
     # Start the server
     print("Starting the Django server")
-    subprocess.run(["python", "manage.py", "runserver"])
+    subprocess.run([sys.executable, "manage.py", "runserver"])
