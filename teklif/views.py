@@ -3,28 +3,41 @@ from .forms import TeklifForm
 import time
 import os
 from django.conf import settings
-from django.db import transaction
-
+from django.core.cache import cache
+from .forms import TeklifForm
+from otomatik.run import run
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def offer_success_view(request):
     return render(request, 'offer_success.html')
 
+# def teklif_submit_view(request):
+#     if request.method == 'POST':
+#         form = TeklifForm(request.POST)
+#         if form.is_valid():
+#             instance = form.save()
+#             transaction.commit()
+#             from otomatik.run import run
+#             run()
+#             # pdf_preview()
+#             return redirect('offer_success_view')
+#     else:
+#         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
+#     return render(request, 'home.html', {'form': form})
+
 def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
         if form.is_valid():
-            instance = form.save()
-            transaction.commit()
-            from otomatik.run import run
-            run()
+            cache.set('temp_form_data', form.cleaned_data, timeout=None)  # Form verilerini önbelleğe kaydedin
+            run()  # Veritabanına kaydedilmeden önce form verilerini işleyin
+            form.save()  # Form verilerini şimdi veritabanına kaydedin
             # pdf_preview()
             return redirect('offer_success_view')
     else:
-        form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
+        form_data = cache.get('temp_form_data')  # Önbellekten geçici form verilerini alın
+        form = TeklifForm(request.POST or None, initial=form_data if form_data else {'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
     return render(request, 'home.html', {'form': form})
-
-
 
 # def pdf_preview(request):
 #     if request.method == 'POST':
