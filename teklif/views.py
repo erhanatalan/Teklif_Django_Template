@@ -20,10 +20,11 @@ def teklif_submit_view(request):
         form = TeklifForm(request.POST)
         if form.is_valid():
             form.save()
-            from otomatik.run import run
-            run()
-            # pdf_preview()
-            return redirect('offer_success_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
+            if form.save():
+                from otomatik.run import run
+                run()
+                # pdf_preview()
+                return redirect('offer_success_view')  # Eğer teklif başarılı bir şekilde kaydedildiyse başka bir sayfaya yönlendirilebilirsiniz.
             # return redirect(request, 'home.html', {'form': form})
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN'})
