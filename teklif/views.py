@@ -10,11 +10,11 @@ pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 def offer_success_view(request):
     return render(request, 'offer_success.html')
 
-async def teklif_submit_view(request):
+def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
         if form.is_valid():
-            await form.save()
+            form.save()
             # latest_teklif = Teklif.objects.latest('id')
             from otomatik.run import run
             run()
