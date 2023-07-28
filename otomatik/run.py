@@ -34,6 +34,8 @@ def run():
     from .myemail import sendemail
     import time
     from .getOffering import toword
+    from .veri1 import row
+    print(row)
     time.sleep(1)
     print('5')
     time.sleep(1)

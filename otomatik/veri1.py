@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.db import connections
 
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "main.settings")
 
 conn = sqlite3.connect('db.sqlite3')
