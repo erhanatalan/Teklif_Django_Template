@@ -39,4 +39,4 @@ print(row)
 
 # print(row1)
 
-conn.close()
+# conn.close()
