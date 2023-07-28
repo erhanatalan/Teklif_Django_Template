@@ -4,6 +4,7 @@ from .topdf import *
 from .tecnical import towordtecnical
 from .myemail import sendemail
 import os
+import time
 from django.conf import settings
 from .getOffering import toword
 if(usmodel=='B'):
@@ -34,6 +35,16 @@ def delete_docx_file(file_path):
         print(f"An error occurred while deleting the file: {e}")
 
 def run():
+    time.sleep(1)
+    print('5')
+    time.sleep(1)
+    print('4')
+    time.sleep(1)
+    print('3')
+    time.sleep(1)
+    print('2')
+    time.sleep(1)
+    print('1')
     # ******************WORD*********************************
     toword()
     # ***************TO-PDF***********************************
