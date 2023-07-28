@@ -1,12 +1,7 @@
-from .veri import *
-from .veri1 import *
-from .topdf import *
-from .tecnical import towordtecnical
-from .myemail import sendemail
 import os
-import time
 from django.conf import settings
-from .getOffering import toword
+from .veri import *
+from .topdf import *
 if(usmodel=='B'):
     from .infoB import *
 elif(usmodel=='C'):
@@ -35,6 +30,10 @@ def delete_docx_file(file_path):
         print(f"An error occurred while deleting the file: {e}")
 
 def run():
+    from .tecnical import towordtecnical
+    from .myemail import sendemail
+    import time
+    from .getOffering import toword
     time.sleep(1)
     print('5')
     time.sleep(1)

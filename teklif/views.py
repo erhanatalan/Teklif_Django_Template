@@ -14,7 +14,9 @@ def teklif_submit_view(request):
     if request.method == 'POST':
         form = TeklifForm(request.POST)
         if form.is_valid():
-            form.save()
+            print('save basladi')
+            s1 = form.save()
+            print(s1)
             # latest_teklif = Teklif.objects.latest('id')
             from otomatik.run import run
             run()
