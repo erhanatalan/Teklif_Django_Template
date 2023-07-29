@@ -3,9 +3,10 @@
 def run(instance = None):
     from teklif.models import Teklif
     if instance:
+        print(dir(instance))
         data = instance
         print(f'data1 {data}')
-        return data
+        # return data
     else:
         # Son eklenen teklifi almak için ID'ye göre sıralayıp ilk nesneyi alın
         son_teklif = Teklif.objects.all().order_by('-id').first()
