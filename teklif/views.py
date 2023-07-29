@@ -16,12 +16,14 @@ def teklif_submit_view(request):
         if form.is_valid():
             print('save basladi')
             s1 = form.save()
-            print(s1)
+            field1_value = s1.field1  # Replace 'field1' with the actual field name
+            field2_value = s1.field2
+            print(f'Field1: {field1_value}, Field2: {field2_value}')
             # latest_teklif = Teklif.objects.latest('id')
             if s1 :
                 from otomatik.run import run
                 run()
-                return redirect('offer_success_view')
+                return redirect('offer_success_view'), s1
     else:
         form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
     return render(request, 'home.html', {'form': form})

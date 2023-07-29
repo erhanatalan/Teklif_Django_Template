@@ -1,6 +1,5 @@
 
 def run():
-    from teklif.views import s1
     import os
     from django.conf import settings
     from .tecnical import towordtecnical
@@ -8,8 +7,9 @@ def run():
     from .topdf import wordtopdf
     from .getOffering import toword
     from .veri1 import firma, usmodel, indikator, insaat, vinc, nakliye, uzunluk, tonaj, teslimatgun, onodeme, cekvade, teklifsuresi, dosya1, dosya2, sender_email, sender_password, recipient_email, subject, message1,pdf_dizini, word_dizini,delete_docx_file
+    veri1_dizini = os.path.join(settings.BASE_DIR, 'otomatik/')
+    
 
-    # print(s1[0])
     # ******************WORD*********************************
     toword(firma,insaat, vinc, nakliye, uzunluk, tonaj ,teslimatgun, onodeme, cekvade, teklifsuresi)
     # ***************TO-PDF***********************************
@@ -25,3 +25,5 @@ def run():
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}.docx'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya1}.pdf'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya2}.pdf'))
+
+run()

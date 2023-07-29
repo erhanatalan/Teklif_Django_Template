@@ -5,66 +5,43 @@ from django.db import connections
 import os
 from dotenv import load_dotenv
 from docx.shared import RGBColor
-from teklif.views import s1
+from teklif.views import teklif_submit_view
+from django.http import HttpRequest
 load_dotenv()
 
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "main.settings")
+
+conn = sqlite3.connect('db.sqlite3')
+cursor = conn.cursor()
+
+cursor.execute("SELECT * FROM teklif_teklif ORDER BY id DESC LIMIT 1")
+row = cursor.fetchone()
+
 A = 'ALICI FIRMA TARAFINDAN'
 S = 'SATICI FIRMA TARAFINDAN'
-toemail = s1[1]
-firma = s1[2]
-usmodel = s1[3]
-indikator = s1[4]
-yazar = s1[19]
-insaat = s1[5]
-vinc = s1[6]
-nakliye = s1[7]
-uzunluk = s1[8]
-tonaj = s1[9]
-teslimatgun = s1[10]
-onodeme = s1[11]
-cekvade = s1[12]
-teklifsuresi = s1[13]
-ekmasraf = s1[14]
-insaatucret = s1[15]
-vincucret = s1[16]
-nakliyeucret = s1[17]
+toemail = row[1]
+firma = row[2]
+usmodel = row[3]
+indikator = row[4]
+yazar = row[19]
+insaat = row[5]
+vinc = row[6]
+nakliye = row[7]
+uzunluk = row[8]
+tonaj = row[9]
+teslimatgun = row[10]
+onodeme = row[11]
+cekvade = row[12]
+teklifsuresi = row[13]
+ekmasraf = row[14]
+insaatucret = row[15]
+vincucret = row[16]
+nakliyeucret = row[17]
 
-print(s1)
+print(row)
 
-
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "main.settings")
-
-# conn = sqlite3.connect('db.sqlite3')
-# cursor = conn.cursor()
-
-# cursor.execute("SELECT * FROM teklif_teklif ORDER BY id DESC LIMIT 1")
-# row = cursor.fetchone()
-
-# A = 'ALICI FIRMA TARAFINDAN'
-# S = 'SATICI FIRMA TARAFINDAN'
-# toemail = row[1]
-# firma = row[2]
-# usmodel = row[3]
-# indikator = row[4]
-# yazar = row[19]
-# insaat = row[5]
-# vinc = row[6]
-# nakliye = row[7]
-# uzunluk = row[8]
-# tonaj = row[9]
-# teslimatgun = row[10]
-# onodeme = row[11]
-# cekvade = row[12]
-# teklifsuresi = row[13]
-# ekmasraf = row[14]
-# insaatucret = row[15]
-# vincucret = row[16]
-# nakliyeucret = row[17]
-
-# print(row)
-
-# conn.close()
+conn.close()
 
 A = 'ALICI FİRMA TARAFINDAN'
 S = 'SATICI FİRMA TARAFINDAN'
@@ -119,6 +96,8 @@ dosya2 = f'Teknik_Veriler'
 
 pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 word_dizini = os.path.join(settings.BASE_DIR, 'otomatik/word')
+
+
 sheet = os.getenv("KEY")
 sender_password = os.getenv("SIFRE")
 
