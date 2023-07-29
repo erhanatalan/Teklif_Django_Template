@@ -20,9 +20,10 @@ def run(instance = None):
     from .topdf import wordtopdf
     import os 
     from .getOffering import toword
-    from .veri1 import firma, usmodel, indikator, insaat, vinc, nakliye, uzunluk, tonaj, teslimatgun, onodeme, cekvade, teklifsuresi, dosya1, dosya2, sender_email, sender_password, recipient_email, subject, message1,pdf_dizini, word_dizini,delete_docx_file
+    from .veri1 import getdata, delete_docx_file
     veri1_dizini = os.path.join(settings.BASE_DIR, 'otomatik/')
     
+    firma, usmodel, indikator, insaat, vinc, nakliye, uzunluk, tonaj, teslimatgun, onodeme, cekvade, teklifsuresi, dosya1, dosya2, sender_email, sender_password, recipient_email, subject, message1,pdf_dizini, word_dizini = getdata(data.id)
 
     #******************WORD*********************************
     toword(firma,insaat, vinc, nakliye, uzunluk, tonaj ,teslimatgun, onodeme, cekvade, teklifsuresi)
