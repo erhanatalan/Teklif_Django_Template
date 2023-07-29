@@ -1,11 +1,5 @@
 from django.shortcuts import render, redirect
-import time
-import os
-import sqlite3
-from django.conf import settings
 from .forms import TeklifForm
-from .models import Teklif
-pdf_dizini = os.path.join(settings.BASE_DIR, 'otomatik/pdf')
 
 def offer_success_view(request):
     return render(request, 'offer_success.html')
@@ -22,7 +16,7 @@ def teklif_submit_view(request):
                 if s1 :
                     from otomatik.run import run
                     run()
-                    return redirect('offer_success_view'), s1
+                    return redirect('offer_success_view')
         else:
             form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
         return render(request, 'home.html', {'form': form})
