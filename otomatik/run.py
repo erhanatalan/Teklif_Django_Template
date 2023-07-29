@@ -1,5 +1,10 @@
 
-def run():
+def run(instance = null):
+    from teklif.models import Teklif
+    if instance :
+        data = instance
+    else:
+        data = Teklif.object.get(1)
     import os
     from django.conf import settings
     from .tecnical import towordtecnical
