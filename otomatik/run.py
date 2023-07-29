@@ -8,15 +8,9 @@ def run(instance = None):
     else:
         # Son eklenen teklifi almak için ID'ye göre sıralayıp ilk nesneyi alın
         son_teklif = Teklif.objects.all().order_by('-id').first()
-        if son_teklif:
-            data = son_teklif
-            print(f'data2 {data}')
-            return data
-        else:
-            # Eğer veritabanında hiç teklif yoksa veya `Teklif` modeli henüz boşsa, instance'i boş olarak ayarlayın
-            data = None
-            print(f'data3 {data}')
-    # import os
+        data = son_teklif
+        print(f'data2 {data} {data[0]}')
+        return data
     # from django.conf import settings
     # from .tecnical import towordtecnical
     # from .myemail import sendemail
