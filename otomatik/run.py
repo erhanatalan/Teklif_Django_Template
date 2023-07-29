@@ -25,17 +25,17 @@ def run(instance = None):
     
 
     # ******************WORD*********************************
-    toword(firma,insaat, vinc, nakliye, uzunluk, tonaj ,teslimatgun, onodeme, cekvade, teklifsuresi)
-    # ***************TO-PDF***********************************
-    wordtopdf(f'{word_dizini}/{dosya1}.docx',f'{pdf_dizini}/{dosya1}.pdf')
-    # ******************WORD*********************************
-    towordtecnical(usmodel, indikator,uzunluk)
-    # ***************TO-PDF***********************************
-    wordtopdf(f'{word_dizini}/{dosya2}.docx',f'{pdf_dizini}/{dosya2}.pdf')
-    # ******************Preview*********************************
-    sendemail(sender_email, sender_password, recipient_email, subject, message1)
-    # ******************delete*********************************
-    delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya1}.docx'))
-    delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}.docx'))
-    delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya1}.pdf'))
-    delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya2}.pdf'))
+    # toword(firma,insaat, vinc, nakliye, uzunluk, tonaj ,teslimatgun, onodeme, cekvade, teklifsuresi)
+    # # ***************TO-PDF***********************************
+    # wordtopdf(f'{word_dizini}/{dosya1}.docx',f'{pdf_dizini}/{dosya1}.pdf')
+    # # ******************WORD*********************************
+    # towordtecnical(usmodel, indikator,uzunluk)
+    # # ***************TO-PDF***********************************
+    # wordtopdf(f'{word_dizini}/{dosya2}.docx',f'{pdf_dizini}/{dosya2}.pdf')
+    # # ******************Preview*********************************
+    # sendemail(sender_email, sender_password, recipient_email, subject, message1)
+    # # ******************delete*********************************
+    # delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya1}.docx'))
+    # delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}.docx'))
+    # delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya1}.pdf'))
+    # delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya2}.pdf'))
