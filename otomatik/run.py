@@ -2,13 +2,18 @@
 
 def run(instance = None):
     from teklif.models import Teklif
-    if instance :
+    if instance:
         data = instance
-        print(f'1 {data}')
     else:
-        data = Teklif.object.get(1)
-        print(f'2 {data}')
-        return data
+        # Son eklenen teklifi almak için ID'ye göre sıralayıp ilk nesneyi alın
+        son_teklif = Teklif.objects.all().order_by('-id').first()
+        if son_teklif:
+            data = son_teklif
+            print(data)
+            return data
+        else:
+            # Eğer veritabanında hiç teklif yoksa veya `Teklif` modeli henüz boşsa, instance'i boş olarak ayarlayın
+            data = None
     import os
     from django.conf import settings
     from .tecnical import towordtecnical
