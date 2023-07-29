@@ -1,10 +1,13 @@
 
-def run(instance = null):
+def run(instance = None):
     from teklif.models import Teklif
     if instance :
         data = instance
+        print(f'1 {data}')
     else:
         data = Teklif.object.get(1)
+        print(f'2 {data}')
+        return data
     import os
     from django.conf import settings
     from .tecnical import towordtecnical
@@ -30,5 +33,3 @@ def run(instance = null):
     delete_docx_file(os.path.join(settings.BASE_DIR, f'otomatik/word/{dosya2}.docx'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya1}.pdf'))
     delete_docx_file(os.path.join(settings.BASE_DIR, f'{dosya2}.pdf'))
-
-run()
