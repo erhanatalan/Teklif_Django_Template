@@ -10,12 +10,13 @@ def teklif_submit_view(request):
         if request.method == 'POST':
             form = TeklifForm(request.POST)
             if form.is_valid():
+                from teklif.models import Teklif
                 print('save basladi')
                 s1 = form.save()
-                # latest_teklif = Teklif.objects.latest('id')
-                if s1 :
+                son_teklif = Teklif.objects.all().order_by('-id').first()
+                if son_teklif :
                     from otomatik.run import run
-                    run(s1)
+                    run(son_teklif)
                     return redirect('offer_success_view')
         else:
             form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
