@@ -11,7 +11,7 @@ def run(instance = None):
         son_teklif = Teklif.objects.all().order_by('-id').first()
         data = son_teklif
         print(f'data2 {data}')
-        return data
+        # return data
     
     from django.conf import settings
     from .tecnical import towordtecnical
