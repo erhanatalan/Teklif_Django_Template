@@ -13,6 +13,7 @@ def teklif_submit_view(request):
                 from teklif.models import Teklif
                 print('save basladi')
                 s1 = form.save()
+                print(f's1: {s1}')
                 if s1 :
                     from otomatik.run import run
                     run(s1)
