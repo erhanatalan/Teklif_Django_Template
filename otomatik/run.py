@@ -1,4 +1,5 @@
 
+
 def run(instance = None):
     from teklif.models import Teklif
     if instance :
