@@ -5,7 +5,7 @@ def run(instance = None):
     if instance:
         print(dir(instance))
         data = instance
-        print(f'data1 {data}')
+        print(f'data1 {data.id}')
         # return data
     else:
         # Son eklenen teklifi almak için ID'ye göre sıralayıp ilk nesneyi alın
