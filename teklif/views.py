@@ -15,7 +15,7 @@ def teklif_submit_view(request):
                 # latest_teklif = Teklif.objects.latest('id')
                 if s1 :
                     from otomatik.run import run
-                    run()
+                    run(s1)
                     return redirect('offer_success_view')
         else:
             form = TeklifForm(initial={'uzunluk': 16, 'tonaj': 80, 'indikator':'ABS-B3', 'usmodel':'B', 'yazar':'Erhan ATALAN', 'cekvade':60, 'vinc':'ALICI FIRMA TARAFINDAN','insaat':'ALICI FIRMA TARAFINDAN','nakliye':'ALICI FIRMA TARAFINDAN'})
