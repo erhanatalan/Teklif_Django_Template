@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from .veri1 import *
-from .veri import *
 import docx
 from .hyperlink import add_hyperlink
 from docx.shared import Inches, Pt
@@ -22,7 +21,7 @@ if(usmodel=='I'):
     from .infoI import *
 from .veri import model
 
-def towordtecnical():
+def towordtecnical(usmodel, indikator,uzunluk):
     # ******************************************
     # Yeni bir Word belgesi oluştur
     doc = docx.Document()

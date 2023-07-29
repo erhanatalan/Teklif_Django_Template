@@ -25,7 +25,7 @@ elif(usmodel=='I'):
     from .infoI import *
 
 
-def toword():
+def toword(firma,insaat, vinc, nakliye, uzunluk, tonaj ,teslimatgun, onodeme, cekvade, teklifsuresi):
     # ******************************************
     # Türkçe lokal ayarlarını kullan
     default_locale = locale.getdefaultlocale()
