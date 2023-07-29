@@ -9,7 +9,7 @@ def run():
     from .getOffering import toword
     from .veri1 import firma, usmodel, indikator, insaat, vinc, nakliye, uzunluk, tonaj, teslimatgun, onodeme, cekvade, teklifsuresi, dosya1, dosya2, sender_email, sender_password, recipient_email, subject, message1,pdf_dizini, word_dizini,delete_docx_file
 
-    print('s1:' s1[0])
+    print(s1[0])
     # ******************WORD*********************************
     toword(firma,insaat, vinc, nakliye, uzunluk, tonaj ,teslimatgun, onodeme, cekvade, teklifsuresi)
     # ***************TO-PDF***********************************
