@@ -16,14 +16,14 @@ def run(instance = None):
             # Eğer veritabanında hiç teklif yoksa veya `Teklif` modeli henüz boşsa, instance'i boş olarak ayarlayın
             data = None
             print(f'data3 {data}')
-    import os
-    from django.conf import settings
-    from .tecnical import towordtecnical
-    from .myemail import sendemail
-    from .topdf import wordtopdf
-    from .getOffering import toword
-    from .veri1 import firma, usmodel, indikator, insaat, vinc, nakliye, uzunluk, tonaj, teslimatgun, onodeme, cekvade, teklifsuresi, dosya1, dosya2, sender_email, sender_password, recipient_email, subject, message1,pdf_dizini, word_dizini,delete_docx_file
-    veri1_dizini = os.path.join(settings.BASE_DIR, 'otomatik/')
+    # import os
+    # from django.conf import settings
+    # from .tecnical import towordtecnical
+    # from .myemail import sendemail
+    # from .topdf import wordtopdf
+    # from .getOffering import toword
+    # from .veri1 import firma, usmodel, indikator, insaat, vinc, nakliye, uzunluk, tonaj, teslimatgun, onodeme, cekvade, teklifsuresi, dosya1, dosya2, sender_email, sender_password, recipient_email, subject, message1,pdf_dizini, word_dizini,delete_docx_file
+    # veri1_dizini = os.path.join(settings.BASE_DIR, 'otomatik/')
     
 
     # ******************WORD*********************************
